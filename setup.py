@@ -1,45 +1,37 @@
-import setuptools
-from setuptools import find_packages
-import pathlib
+from setuptools import find_packages, setup
 
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open(str(pathlib.Path(__file__).parent.absolute()) + "/monolithcaching/version.py", "r") as fh:
-    version = fh.read().split("=")[1].replace("'", "")
 
-# pushing another build
-directives = {
-    'language_level': 3,
-    'always_allow_keywords': True
-}
-
-setuptools.setup(
-    name="monolithcaching",
-    version=version,
+setup(
+    name="flitton_fib_py",
+    version="0.0.1",
     author="Maxwell Flitton",
-    author_email="maxwell@monolithai.com",
-    description="Python package for monolithcaching",
+    author_email="maxwell@gmail.com",
+    description="Calculates a Fibonacci number",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/MonolithAILtd/caching",
+    url="https://github.com/maxwellflitton/flitton-fib-py",
     install_requires=[
-        "redis>=3.3.8",
-        "boto3>=1.9.243",
-        "botocore>=1.11.1"
+        "PyYAML>=4.1.2",
+        "dill>=0.2.8"
     ],
+    extras_require={
+     'server': ["Flask>=1.0.0"]
+    },
     packages=find_packages(exclude=("tests",)),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'caching-hello = monolithcaching.console_commands.hello:print_logo',
+            'fib-number = flitton_fib_py.cmd.fib_numb:fib_numb',
         ],
-    }
+    },
+    python_requires='>=3',
+    tests_require=['pytest'],
 )
