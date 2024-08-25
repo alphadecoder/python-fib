@@ -1,2 +1,2 @@
-# python-fib
-python-fib
+# Packt Fibonacci
+This is a basic 
