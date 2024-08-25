@@ -1,5 +1,3 @@
-import pathlib
-
 from setuptools import find_packages, setup
 
 
@@ -7,15 +5,10 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
-with open(str(pathlib.Path(__file__).parent.absolute()) +
-          "/flitton_fib_py/version.py", "r") as fh:
-    version = fh.read().split("=")[1].replace("'", "")
-
-
 setup(
     name="python_fib",
-    version=version,
-    author="alphadecoder",
+    version="0.0.1",
+    author="alphadecoder ref ...",
     author_email="alphadecoder@163.com",
     description="Calculates a Fibonacci number",
     long_description=long_description,
